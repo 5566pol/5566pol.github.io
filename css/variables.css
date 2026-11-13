@@ -1,0 +1,22 @@
+/* ==========================================================================
+   1. CSS Variables & Anime Theme Palette (css/variables.css)
+   《孤独摇滚!》(Bocchi the Rock!) × 《紫罗兰永恒花园》(Violet Evergarden)
+   ========================================================================== */
+:root {
+  --bg-deep: #070812;
+  --text-main: #ffffff;
+
+  /* 孤独摇滚 結束バンド 四原色 */
+  --bocchi-pink: #ff6b9d;
+  --nijika-yellow: #ffd166;
+  --ryo-blue: #118ab2;
+  --kita-red: #ef476f;
+
+  /* 紫罗兰永恒花园 莱顿古典色 */
+  --violet-royal: #9d7fe6;
+  --leiden-gold: #e2be6b;
+  --emerald-brooch: #2ec4b6;
+
+  --spring-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ethereal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

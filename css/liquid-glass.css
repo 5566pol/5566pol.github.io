@@ -1,0 +1,222 @@
+/* ==========================================================================
+   2. Cursor-Circle Inverted Title & Flat Optical Apple Liquid Glass
+   - 主标题鼠标周围圆形区域局部反色 (Spotlight Circle Color Inversion on Title Only)
+   - 副标题独立展示
+   - GitHub deepika-builds/liquid-glass 扁平纯光学液态玻璃圆形按钮
+   ========================================================================== */
+
+/* 主标题容器：仅在主标题范围内生效鼠标圆形反色聚光灯 */
+.liquid-title-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 6px 16px;
+  cursor: none;
+  opacity: 0;
+  transform: translateY(18px) scale(0.95);
+  transition:
+    transform 0.85s var(--ethereal-ease),
+    opacity 0.95s var(--ethereal-ease);
+  user-select: none;
+  isolation: isolate;
+}
+
+.liquid-title-wrap.entered {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 底层原始主标题 */
+.liquid-title {
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+  font-size: clamp(2.3rem, 5.8vw, 4.3rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.15;
+  color: #ffffff;
+  text-shadow: 0 8px 28px rgba(8, 10, 26, 0.55);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 跟随鼠标的局部圆形反色透镜 (仅在主标题上出现，将圈内文字与背景局部反色) */
+.title-invert-spot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #ffffff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 2;
+  transform: translate3d(calc(var(--spot-x, -999px) - 48px), calc(var(--spot-y, -999px) - 48px), 0) scale(0);
+  transition: transform 0.28s var(--spring-ease), opacity 0.25s ease;
+  opacity: 0;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.35);
+}
+
+.liquid-title-wrap:hover .title-invert-spot {
+  opacity: 1;
+  transform: translate3d(calc(var(--spot-x, 50%) - 48px), calc(var(--spot-y, 50%) - 48px), 0) scale(1);
+}
+
+/* 下方副标题 (不受反色圈影响) */
+.liquid-subtitle {
+  margin-top: 8px;
+  font-size: clamp(0.76rem, 1.5vw, 0.92rem);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.72);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.95s var(--ethereal-ease) 0.14s, transform 0.95s var(--ethereal-ease) 0.14s;
+  user-select: none;
+  text-align: center;
+}
+
+.liquid-subtitle.entered {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   扁平纯光学 Apple Liquid Glass 圆形图标按钮 (Non-Skeuomorphic Flat Optical Lens)
+   参照 GitHub deepika-builds/liquid-glass 材质参数
+   ========================================================================== */
+.liquid-circle-btn {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(14, 14, 22, 0.16) 100%
+  );
+
+  backdrop-filter: url(#apple-liquid-refraction) blur(3px) saturate(165%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.38),
+    inset 0 1px 1px rgba(255, 255, 255, 0.52),
+    inset 0 -6px 16px rgba(255, 255, 255, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(22px) scale(0.82);
+  transition:
+    transform 0.42s var(--spring-ease),
+    box-shadow 0.42s var(--spring-ease),
+    background 0.32s ease,
+    color 0.28s ease,
+    opacity 0.65s var(--ethereal-ease);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  isolation: isolate;
+}
+
+.liquid-circle-btn.entered {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.liquid-circle-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(
+    48px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.24) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-circle-btn svg {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.38s var(--spring-ease), color 0.28s ease;
+}
+
+.liquid-circle-btn.entered:hover {
+  transform: translateY(-6px) scale(1.08);
+  color: #ffffff;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(14, 14, 22, 0.22) 100%
+  );
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.48),
+    0 0 20px -4px var(--brand-glow, rgba(255, 255, 255, 0.35)),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.78),
+    inset 0 -8px 18px rgba(255, 255, 255, 0.10),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.32);
+}
+
+.liquid-circle-btn.entered:hover::after {
+  opacity: 1;
+}
+
+.liquid-circle-btn.entered:hover svg {
+  transform: scale(1.06);
+}
+
+.liquid-circle-btn.entered:active {
+  transform: translateY(-1px) scale(0.96);
+}
+
+.liquid-tooltip {
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: rgba(14, 14, 22, 0.55);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.3s var(--spring-ease);
+  z-index: 20;
+}
+
+.liquid-circle-btn:hover .liquid-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 640px) {
+  .liquid-title {
+    white-space: normal;
+  }
+  .liquid-circle-btn {
+    width: 54px;
+    height: 54px;
+  }
+}

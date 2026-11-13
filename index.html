@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>5566pol's pagehome</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/liquid-glass.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       GITHUB OPTICAL LIQUID GLASS SVG REFRACTION & CHROMATIC ABERRATION FILTER
+       ======================================================================== -->
+  <svg width="0" height="0" style="position:fixed;top:0;left:0;pointer-events:none;z-index:-1" aria-hidden="true">
+    <defs>
+      <filter id="apple-liquid-refraction" x="-35%" y="-35%" width="170%" height="170%" color-interpolation-filters="sRGB">
+        <feImage id="liquid-displacement-feimage" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="dispMap" />
+        <feDisplacementMap in="SourceGraphic" in2="dispMap" scale="-28" xChannelSelector="R" yChannelSelector="G" result="dispR" />
+        <feColorMatrix in="dispR" type="matrix"
+          values="1 0 0 0 0
+                  0 0 0 0 0
+                  0 0 0 0 0
+                  0 0 0 1 0" result="chanR" />
+        <feDisplacementMap in="SourceGraphic" in2="dispMap" scale="-24" xChannelSelector="R" yChannelSelector="G" result="dispG" />
+        <feColorMatrix in="dispG" type="matrix"
+          values="0 0 0 0 0
+                  0 1 0 0 0
+                  0 0 0 0 0
+                  0 0 0 1 0" result="chanG" />
+        <feDisplacementMap in="SourceGraphic" in2="dispMap" scale="-20" xChannelSelector="R" yChannelSelector="G" result="dispB" />
+        <feColorMatrix in="dispB" type="matrix"
+          values="0 0 0 0 0
+                  0 0 0 0 0
+                  0 0 1 0 0
+                  0 0 0 1 0" result="chanB" />
+        <feBlend mode="screen" in="chanR" in2="chanG" result="rg" />
+        <feBlend mode="screen" in="rg" in2="chanB" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="anime-bg-wrapper" aria-hidden="true">
+    <svg class="anime-bg-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyTwilight" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#090a1a" />
+          <stop offset="32%" stop-color="#1e163b" />
+          <stop offset="58%" stop-color="#432357" />
+          <stop offset="76%" stop-color="#8c3b68" />
+          <stop offset="90%" stop-color="#d97b6c" />
+          <stop offset="100%" stop-color="#f4c089" />
+        </linearGradient>
+        <linearGradient id="lakeMirror" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#d4726a" stop-opacity="0.85" />
+          <stop offset="28%" stop-color="#5c2856" stop-opacity="0.92" />
+          <stop offset="65%" stop-color="#1c1836" stop-opacity="0.96" />
+          <stop offset="100%" stop-color="#070812" />
+        </linearGradient>
+        <radialGradient id="sunsetSun" cx="50%" cy="62%" r="38%">
+          <stop offset="0%" stop-color="#fff5d6" stop-opacity="0.95" />
+          <stop offset="25%" stop-color="#ffd166" stop-opacity="0.65" />
+          <stop offset="55%" stop-color="#ff6b9d" stop-opacity="0.35" />
+          <stop offset="100%" stop-color="#ff6b9d" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="bocchiCyanGlow" cx="22%" cy="54%" r="32%">
+          <stop offset="0%" stop-color="#2ec4b6" stop-opacity="0.42" />
+          <stop offset="60%" stop-color="#118ab2" stop-opacity="0.14" />
+          <stop offset="100%" stop-color="#118ab2" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="violetMagentaGlow" cx="78%" cy="52%" r="34%">
+          <stop offset="0%" stop-color="#ff6b9d" stop-opacity="0.42" />
+          <stop offset="60%" stop-color="#9d7fe6" stop-opacity="0.16" />
+          <stop offset="100%" stop-color="#9d7fe6" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+
+      <rect width="1920" height="680" fill="url(#skyTwilight)" />
+      <circle cx="960" cy="650" r="620" fill="url(#sunsetSun)" />
+      <circle cx="420" cy="560" r="520" fill="url(#bocchiCyanGlow)" />
+      <circle cx="1500" cy="540" r="540" fill="url(#violetMagentaGlow)" />
+
+      <g opacity="0.65" stroke="#ffffff" stroke-linecap="round">
+        <line x1="280" y1="140" x2="410" y2="210" stroke-width="2" opacity="0.8" />
+        <line x1="1490" y1="110" x2="1340" y2="195" stroke-width="2.2" opacity="0.9" />
+        <circle cx="520" cy="160" r="2" fill="#fff" />
+        <circle cx="780" cy="95" r="2.5" fill="#ffd166" />
+        <circle cx="1140" cy="130" r="2" fill="#ff6b9d" />
+        <circle cx="1380" cy="88" r="2.5" fill="#2ec4b6" />
+        <circle cx="960" cy="180" r="1.8" fill="#fff" />
+      </g>
+
+      <path d="M0 520 Q320 450 640 500 T1280 480 T1920 510 L1920 670 L0 670 Z" fill="#6b2d5c" opacity="0.45" />
+      <path d="M0 575 Q480 515 960 565 T1920 550 L1920 670 L0 670 Z" fill="#3a1c47" opacity="0.65" />
+      <path d="M0 665 L0 610 L180 585 L340 620 L520 570 L535 510 L550 570 L740 625 L960 640 L1190 618 L1380 565 L1392 495 L1404 565 L1620 605 L1920 580 L1920 665 Z" fill="#18122b" />
+
+      <rect y="660" width="1920" height="420" fill="url(#lakeMirror)" />
+
+      <g opacity="0.72">
+        <ellipse cx="960" cy="690" rx="340" ry="6" fill="#fff3c4" opacity="0.75" />
+        <ellipse cx="960" cy="725" rx="420" ry="8" fill="#ffd166" opacity="0.55" />
+        <ellipse cx="960" cy="765" rx="510" ry="10" fill="#ff6b9d" opacity="0.42" />
+        <ellipse cx="720" cy="745" rx="220" ry="6" fill="#2ec4b6" opacity="0.45" />
+        <ellipse cx="1210" cy="755" rx="240" ry="6" fill="#9d7fe6" opacity="0.48" />
+        <ellipse cx="960" cy="820" rx="620" ry="12" fill="#e2be6b" opacity="0.30" />
+      </g>
+
+      <g opacity="0.82">
+        <circle cx="620" cy="560" r="42" fill="#ff6b9d" opacity="0.35" />
+        <circle cx="740" cy="590" r="32" fill="#ffd166" opacity="0.42" />
+        <circle cx="860" cy="550" r="48" fill="#2ec4b6" opacity="0.32" />
+        <circle cx="960" cy="585" r="54" fill="#f4d58d" opacity="0.38" />
+        <circle cx="1080" cy="555" r="44" fill="#9d7fe6" opacity="0.38" />
+        <circle cx="1200" cy="590" r="36" fill="#ff6b9d" opacity="0.36" />
+        <circle cx="1310" cy="560" r="40" fill="#38bdf8" opacity="0.34" />
+      </g>
+    </svg>
+
+    <div class="anime-bg-photo"></div>
+    <div class="anime-bg-vignette"></div>
+  </div>
+
+  <!-- 飘落波奇发饰方块与紫罗兰花瓣微光 Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ========================================================================
+       MODULE 1: 自动播放二次元入场过渡动画（带薇尔莉特祖母绿胸针 1.45s 柔焦羽化渐出）
+       ======================================================================== -->
+  <div id="intro-gate" class="intro-gate" aria-hidden="true">
+    <div class="shutter-panel shutter-top"></div>
+    <div class="shutter-panel shutter-bottom"></div>
+
+    <div class="kessoku-slash">
+      <div class="w-[140vw] h-2 bg-[#ff6b9d] shadow-[0_0_25px_#ff6b9d]"></div>
+      <div class="w-[140vw] h-2 bg-[#ffd166] mt-1 shadow-[0_0_25px_#ffd166]"></div>
+      <div class="w-[140vw] h-2 bg-[#118ab2] mt-1 shadow-[0_0_25px_#118ab2]"></div>
+      <div class="w-[140vw] h-2 bg-[#ef476f] mt-1 shadow-[0_0_25px_#ef476f]"></div>
+    </div>
+
+    <div class="intro-crest">
+      <!-- 双层翡翠与流金扩散光晕 -->
+      <div class="brooch-halo"></div>
+      <div class="brooch-halo-outer"></div>
+      <svg viewBox="0 0 120 120" class="w-full h-full relative z-10 drop-shadow-[0_0_28px_rgba(86,240,216,0.55)]">
+        <defs>
+          <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4d58d" />
+            <stop offset="50%" stop-color="#d4af37" />
+            <stop offset="100%" stop-color="#9a7b2c" />
+          </linearGradient>
+          <linearGradient id="emeraldGem" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7efce8" />
+            <stop offset="45%" stop-color="#1b998b" />
+            <stop offset="100%" stop-color="#0b5345" />
+          </linearGradient>
+          <linearGradient id="pickGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff6b9d" />
+            <stop offset="100%" stop-color="#8b6fc0" />
+          </linearGradient>
+        </defs>
+        <circle cx="60" cy="60" r="50" fill="url(#goldRim)" opacity="0.18" stroke="url(#goldRim)" stroke-width="2" />
+        <path d="M60 16 C86 16 98 40 88 70 C80 92 66 104 60 106 C54 104 40 92 32 70 C22 40 34 16 60 16 Z"
+              fill="url(#pickGrad)" opacity="0.92" stroke="#ffffff" stroke-width="1.5" />
+        <!-- 薇尔莉特祖母绿胸针宝石主体与切面反光 -->
+        <ellipse cx="60" cy="56" rx="18" ry="24" fill="url(#emeraldGem)" stroke="url(#goldRim)" stroke-width="3" />
+        <ellipse cx="55" cy="46" rx="5" ry="8" fill="#ffffff" opacity="0.45" transform="rotate(-15 55 46)" />
+        <rect x="76" y="24" width="11" height="11" rx="2" transform="rotate(-14 76 24)" fill="#ff6b9d" stroke="#fff" stroke-width="1.2" />
+        <rect x="85" y="33" width="11" height="11" rx="2" transform="rotate(12 85 33)" fill="#2ec4b6" stroke="#fff" stroke-width="1.2" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODULE 2: Title (鼠标周围圆圈反色) + 副标题 + 7 个扁平光学液态玻璃图标
+       ======================================================================== -->
+  <main class="minimal-stage">
+    <header class="title-block">
+      <div id="hero-title-wrap" class="liquid-title-wrap">
+        <h1 id="hero-title" class="liquid-title">5566pol's Personal Homepage</h1>
+        <span class="title-invert-spot" aria-hidden="true"></span>
+      </div>
+      <p id="hero-subtitle" class="liquid-subtitle">Nothing was found on this page</p>
+    </header>
+
+    <nav id="circle-contacts-dock" class="circle-dock" aria-label="联系方式"></nav>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
