@@ -56,8 +56,16 @@
     } catch (e) {}
   }
 
-  /* 1. 渲染主标题（带鼠标圆形反色圈）、副标题与 7 个扁平光学液态玻璃圆形图标 */
+  /* 1. 渲染主标题、独立背景图与 7 个扁平光学液态玻璃圆形图标 */
   function renderHeroAndIcons() {
+    if (cfg.backgrounds) {
+      if (cfg.backgrounds.desktop) {
+        document.documentElement.style.setProperty("--bg-desktop-url", `url("${cfg.backgrounds.desktop}")`);
+      }
+      if (cfg.backgrounds.mobile) {
+        document.documentElement.style.setProperty("--bg-mobile-url", `url("${cfg.backgrounds.mobile}")`);
+      }
+    }
     const titleWrap = document.getElementById("hero-title-wrap");
     const titleEl = document.getElementById("hero-title");
     const subEl = document.getElementById("hero-subtitle");

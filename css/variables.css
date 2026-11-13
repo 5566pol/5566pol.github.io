@@ -19,4 +19,8 @@
 
   --spring-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ethereal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* 电脑端与手机端独立背景图配置（也可在 js/config.js 中一键修改） */
+  --bg-desktop-url: url("https://www.eizoglobal.com/solutions/casestudies/creative-work/qtec-kyoto-animation/qtec_kyoto_animation_img001.jpg");
+  --bg-mobile-url: url("https://tv.violet-evergarden.jp/img/top/keyvisual_slide02.jpg");
 }
