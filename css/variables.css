@@ -20,7 +20,9 @@
   --spring-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ethereal-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* 电脑端与手机端独立背景图配置（也可在 js/config.js 中一键修改） */
-  --bg-desktop-url: url("https://www.eizoglobal.com/solutions/casestudies/creative-work/qtec-kyoto-animation/qtec_kyoto_animation_img001.jpg");
-  --bg-mobile-url: url("https://tv.violet-evergarden.jp/img/top/keyvisual_slide02.jpg");
+  /* 电脑端与手机端独立背景图配置（也可在 js/config.js 中一键修改）。
+     注意：请使用本地 assets 下的图片或允许外链的图床 URL，
+     其他网站的图片多有防盗链，部署到 GitHub Pages 后会加载失败。 */
+  --bg-desktop-url: url("../assets/bg_pc.png");
+  --bg-mobile-url: url("../assets/bg_m.png");
 }

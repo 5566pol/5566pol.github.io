@@ -8,6 +8,12 @@ window.SITE_CONFIG = {
     subtitle: "Nothing was found on this page"
   },
 
+  /* 电脑端与手机端独立背景图（相对 index.html 的路径，或完整的图片 URL） */
+  backgrounds: {
+    desktop: "assets/bg_pc.png",
+    mobile: "assets/bg_m.png"
+  },
+
  /* 7大圆形 Apple 液态玻璃联系方式配置 */
   contacts: [
     {

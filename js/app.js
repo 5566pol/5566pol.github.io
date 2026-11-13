@@ -59,11 +59,14 @@
   /* 1. 渲染主标题、独立背景图与 7 个扁平光学液态玻璃圆形图标 */
   function renderHeroAndIcons() {
     if (cfg.backgrounds) {
+      /* 自定义属性中的相对 url() 在不同浏览器中解析基准不一致（Chromium 按使用处
+         的样式表解析），因此先转成绝对 URL 再注入，保证任何环境下路径都正确 */
+      const toAbsUrl = (p) => new URL(p, document.baseURI).href;
       if (cfg.backgrounds.desktop) {
-        document.documentElement.style.setProperty("--bg-desktop-url", `url("${cfg.backgrounds.desktop}")`);
+        document.documentElement.style.setProperty("--bg-desktop-url", `url("${toAbsUrl(cfg.backgrounds.desktop)}")`);
       }
       if (cfg.backgrounds.mobile) {
-        document.documentElement.style.setProperty("--bg-mobile-url", `url("${cfg.backgrounds.mobile}")`);
+        document.documentElement.style.setProperty("--bg-mobile-url", `url("${toAbsUrl(cfg.backgrounds.mobile)}")`);
       }
     }
     const titleWrap = document.getElementById("hero-title-wrap");

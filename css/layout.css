@@ -38,22 +38,22 @@ html, body {
   display: block;
 }
 
-/* 电脑端默认背景图（读取 --bg-desktop-url） */
+/* 电脑端默认背景图（读取 --bg-desktop-url，可在 css/variables.css 或 js/config.js 中修改） */
 .anime-bg-photo {
   position: absolute;
   inset: 0;
-  background-image: url("../assets/bg_pc.png");
+  background-image: var(--bg-desktop-url, url("../assets/bg_pc.png"));
   background-size: cover;
   background-position: center 35%;
   opacity: 0.45;
   mix-blend-mode: lighten;
-  filter: saturate(1.25) contrast(1.05);
+  filter: blur(3px);
 }
 
 /* 手机端/竖屏设备独立背景图（屏幕宽度 <= 768px 或竖屏时自动切换为 --bg-mobile-url） */
 @media (max-width: 768px), (orientation: portrait) {
   .anime-bg-photo {
-    background-image: url("../assets/bg_m.png");
+    background-image: var(--bg-mobile-url, url("../assets/bg_m.png"));
     background-position: center center;
   }
 }
