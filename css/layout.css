@@ -42,7 +42,7 @@ html, body {
 .anime-bg-photo {
   position: absolute;
   inset: 0;
-  background-image: var(--bg-desktop-url);
+  background-image: url("../assets/bg_pc.png");
   background-size: cover;
   background-position: center 35%;
   opacity: 0.45;
@@ -53,7 +53,7 @@ html, body {
 /* 手机端/竖屏设备独立背景图（屏幕宽度 <= 768px 或竖屏时自动切换为 --bg-mobile-url） */
 @media (max-width: 768px), (orientation: portrait) {
   .anime-bg-photo {
-    background-image: var(--bg-mobile-url);
+    background-image: url("../assets/bg_m.png");
     background-position: center center;
   }
 }
